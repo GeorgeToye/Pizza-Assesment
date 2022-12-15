@@ -15,13 +15,13 @@ namespace Pizza_Assesment
     {
 
         /// <summary>
-        /// form1 control.
+        /// MargaritaLable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm MargaritaLable;
 
         /// <summary>
         /// Image1 control.
@@ -33,31 +33,13 @@ namespace Pizza_Assesment
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
-        /// PepperoniTextBox control.
+        /// Image2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PepperoniTextBox;
-
-        /// <summary>
-        /// MargaritaTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MargaritaTextBox;
-
-        /// <summary>
-        /// PepperoniButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton PepperoniButton;
+        protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
         /// PriceLabel control.
@@ -69,67 +51,103 @@ namespace Pizza_Assesment
         protected global::System.Web.UI.WebControls.Label PriceLabel;
 
         /// <summary>
-        /// MargaritaButton control.
+        /// Image3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton MargaritaButton;
+        protected global::System.Web.UI.WebControls.Image Image3;
 
         /// <summary>
-        /// RadioButton1 control.
+        /// PriceButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.Button PriceButton;
 
         /// <summary>
-        /// RadioButton4 control.
+        /// SPRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton4;
+        protected global::System.Web.UI.WebControls.RadioButton SPRB;
 
         /// <summary>
-        /// RadioButton2 control.
+        /// SMRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton SMRB;
 
         /// <summary>
-        /// RadioButton5 control.
+        /// Order control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton5;
+        protected global::System.Web.UI.WebControls.Label Order;
 
         /// <summary>
-        /// RadioButton3 control.
+        /// MPRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton3;
+        protected global::System.Web.UI.WebControls.RadioButton MPRB;
 
         /// <summary>
-        /// RadioButton6 control.
+        /// MMRB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton6;
+        protected global::System.Web.UI.WebControls.RadioButton MMRB;
+
+        /// <summary>
+        /// PLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PLable;
+
+        /// <summary>
+        /// LPRB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton LPRB;
+
+        /// <summary>
+        /// LMRB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton LMRB;
+
+        /// <summary>
+        /// MLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MLable;
 
         /// <summary>
         /// OrderButton control.
