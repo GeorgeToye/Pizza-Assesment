@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Pizza_Assesment
 {
@@ -18,7 +13,10 @@ namespace Pizza_Assesment
         protected void SPRB_CheckedChanged(object sender, EventArgs e)
         {
             PLable.Text = string.Format("Small Pepperoni pizza");
+
         }
+
+
         protected void MPRB_CheckedChanged(object sender, EventArgs e)
         {
             PLable.Text = string.Format("Medium Pepperoni pizza");
@@ -41,12 +39,12 @@ namespace Pizza_Assesment
         {
             MLable.Text = string.Format("Large Margarita pizza");
         }
-        protected void Button1_Click1(object sender, EventArgs e)
-        {
-            Response.Redirect("Order.aspx");
-        }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+
+
+
+        protected void PriceButton_Click(object sender, EventArgs e)
         {
             double total;
             total = 0;
@@ -64,7 +62,63 @@ namespace Pizza_Assesment
             total = (MMRB.Checked) ? total + 10 : total;
             total = (LMRB.Checked) ? total + 12 : total;
 
-            PriceLabel.Text = "£" + total.ToString();
+            priceBox.Text = total.ToString();
+
+            {
+               
+
+                PizzaDatabaseEntities1 db = new PizzaDatabaseEntities1();
+
+                var Price = db.Prices;
+
+                var newPrice = new Price();
+
+                String x = priceBox.Text;
+
+                newPrice.Price1 = (priceBox.Text);
+
+                db.Prices.Add(newPrice);
+                db.SaveChanges();
+
+                grdPrice.DataBind();
+
+            }
+
+        }
+        
+
+        protected void OrderButton_Click(object sender, EventArgs e)
+        {
+            
+
+            PLable.Text = string.Format("Small Pepperoni pizza");
+
+
+            PizzaDatabaseEntities1 db = new PizzaDatabaseEntities1();
+            var Order = db.Orders;
+
+            var newOrder = new Order();
+            newOrder.Items = PLable.Text;
+
+
+            Order = db.Orders;
+
+            newOrder = new Order();
+            newOrder.Items = MLable.Text;
+
+            db.Orders.Add(newOrder);
+
+
+            Response.Redirect("Order.aspx");
+
+
+
+        }
+
+        protected void priceBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
+
 }

@@ -42,13 +42,13 @@ namespace Pizza_Assesment
         protected global::System.Web.UI.WebControls.Image Image2;
 
         /// <summary>
-        /// PriceLabel control.
+        /// priceBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PriceLabel;
+        protected global::System.Web.UI.WebControls.TextBox priceBox;
 
         /// <summary>
         /// Image3 control.
@@ -67,6 +67,24 @@ namespace Pizza_Assesment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button PriceButton;
+
+        /// <summary>
+        /// grdPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdPrice;
+
+        /// <summary>
+        /// SqlDataSourcePrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePrice;
 
         /// <summary>
         /// SPRB control.
