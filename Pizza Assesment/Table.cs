@@ -18,7 +18,7 @@ namespace Pizza_Assesment
         public Nullable<int> Customer_Id { get; set; }
         public Nullable<int> Login_Id { get; set; }
         public int Order_Id { get; set; }
-        public decimal Price { get; set; }
+        public int Price { get; set; }
         public byte[] Time_Stamp { get; set; }
     
         public virtual Customer Customer { get; set; }

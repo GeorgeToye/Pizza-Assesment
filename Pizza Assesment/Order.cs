@@ -21,7 +21,8 @@ namespace Pizza_Assesment
         }
     
         public int OrderId { get; set; }
-        public string Items { get; set; }
+        public string Pepperoni { get; set; }
+        public string Margarita { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Table> Tables { get; set; }

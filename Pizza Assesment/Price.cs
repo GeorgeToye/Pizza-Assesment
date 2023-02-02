@@ -20,7 +20,7 @@ namespace Pizza_Assesment
             this.Tables = new HashSet<Table>();
         }
     
-        public decimal PriceId { get; set; }
+        public int PriceId { get; set; }
         public string Price1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

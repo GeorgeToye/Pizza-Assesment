@@ -17,21 +17,22 @@
           <Key>
             <PropertyRef Name="LoginId" />
           </Key>
-          <Property Name="LoginId" Type="int" Nullable="false" />
+          <Property Name="LoginId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_number" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="int" Nullable="false" />
-          <Property Name="Items" Type="varchar" MaxLength="50" />
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pepperoni" Type="varchar" MaxLength="50" />
+          <Property Name="Margarita" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
             <PropertyRef Name="PriceId" />
           </Key>
-          <Property Name="PriceId" Type="smallmoney" Nullable="false" />
+          <Property Name="PriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Price" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Table">
@@ -42,7 +43,7 @@
           <Property Name="Customer_Id" Type="int" />
           <Property Name="Login_Id" Type="int" />
           <Property Name="Order_Id" Type="int" Nullable="false" />
-          <Property Name="Price" Type="smallmoney" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Time_Stamp" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <Association Name="FK_Table_ToCustomers">
@@ -134,7 +135,7 @@
           <Key>
             <PropertyRef Name="LoginId" />
           </Key>
-          <Property Name="LoginId" Type="Int32" Nullable="false" />
+          <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToLogin" FromRole="Login" ToRole="Table" />
         </EntityType>
@@ -142,15 +143,16 @@
           <Key>
             <PropertyRef Name="OrderId" />
           </Key>
-          <Property Name="OrderId" Type="Int32" Nullable="false" />
-          <Property Name="Items" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pepperoni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Margarita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToOrder" FromRole="Order" ToRole="Table" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
             <PropertyRef Name="PriceId" />
           </Key>
-          <Property Name="PriceId" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="PriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Price1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToPrice" FromRole="Price" ToRole="Table" />
         </EntityType>
@@ -162,7 +164,7 @@
           <Property Name="Customer_Id" Type="Int32" />
           <Property Name="Login_Id" Type="Int32" />
           <Property Name="Order_Id" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Time_Stamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Table_ToCustomers" FromRole="Table" ToRole="Customers" />
           <NavigationProperty Name="Login" Relationship="Self.FK_Table_ToLogin" FromRole="Table" ToRole="Login" />
@@ -267,7 +269,8 @@
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="Items" ColumnName="Items" />
+                <ScalarProperty Name="Pepperoni" ColumnName="Pepperoni" />
+                <ScalarProperty Name="Margarita" ColumnName="Margarita" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

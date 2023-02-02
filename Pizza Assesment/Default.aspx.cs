@@ -64,26 +64,6 @@ namespace Pizza_Assesment
 
             priceBox.Text = total.ToString();
 
-            {
-               
-
-                PizzaDatabaseEntities1 db = new PizzaDatabaseEntities1();
-
-                var Price = db.Prices;
-
-                var newPrice = new Price();
-
-                String x = priceBox.Text;
-
-                newPrice.Price1 = (priceBox.Text);
-
-                db.Prices.Add(newPrice);
-                db.SaveChanges();
-
-                grdPrice.DataBind();
-
-            }
-
         }
         
 
@@ -98,24 +78,48 @@ namespace Pizza_Assesment
             var Order = db.Orders;
 
             var newOrder = new Order();
-            newOrder.Items = PLable.Text;
+            
+            newOrder.Pepperoni = PLable.Text.ToString();
 
-
-            Order = db.Orders;
-
-            newOrder = new Order();
-            newOrder.Items = MLable.Text;
+            newOrder.Margarita = MLable.Text.ToString();
 
             db.Orders.Add(newOrder);
 
+            db.SaveChanges();
 
-            Response.Redirect("Order.aspx");
+            grdOrder.DataBind();
+        }
+
+        protected void priceBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            PizzaDatabaseEntities1 db = new PizzaDatabaseEntities1();
+
+            var Price = db.Prices;
+
+            var newPrice = new Price();
+
+            String x = priceBox.Text.ToString();
+
+            newPrice.Price1 = x;
+
+            db.Prices.Add(newPrice);
+
+            db.SaveChanges();
+
+            grdPrice.DataBind();
+
+
 
 
 
         }
 
-        protected void priceBox_TextChanged(object sender, EventArgs e)
+        protected void grdPrice_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

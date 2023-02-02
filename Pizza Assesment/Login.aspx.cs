@@ -14,6 +14,24 @@ namespace Pizza_Assesment
 
         }
 
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
 
+        protected void FNTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PizzaDatabaseEntities1 db = new PizzaDatabaseEntities1();
+            var Customers = db.Customers;
+
+            var newCustomers = new Customer();
+            newCustomers.FirstName = FNTextBox.Text;
+
+
+            Customers = db.Customers;
+
+
+            db.Customers.Add(newCustomers);
+        }
     }
 }

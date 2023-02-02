@@ -15,13 +15,13 @@ namespace Pizza_Assesment
     {
 
         /// <summary>
-        /// MargaritaLable control.
+        /// MargLable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm MargaritaLable;
+        protected global::System.Web.UI.HtmlControls.HtmlForm MargLable;
 
         /// <summary>
         /// Image1 control.
@@ -67,6 +67,15 @@ namespace Pizza_Assesment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button PriceButton;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
         /// grdPrice control.
@@ -166,6 +175,33 @@ namespace Pizza_Assesment
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MLable;
+
+        /// <summary>
+        /// grdOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdOrder;
+
+        /// <summary>
+        /// SqlDataSourceOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceOrder;
+
+        /// <summary>
+        /// OLable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label OLable;
 
         /// <summary>
         /// OrderButton control.
