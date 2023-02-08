@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PizzaDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PizzaDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomersId" />
@@ -117,11 +117,33 @@
             <End Role="Table" EntitySet="Table" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PizzaDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PizzaDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="PizzaDatabaseModel.Customer" />
+          <EntitySet Name="Logins" EntityType="PizzaDatabaseModel.Login" />
+          <EntitySet Name="Orders" EntityType="PizzaDatabaseModel.Order" />
+          <EntitySet Name="Prices" EntityType="PizzaDatabaseModel.Price" />
+          <EntitySet Name="Tables" EntityType="PizzaDatabaseModel.Table" />
+          <AssociationSet Name="FK_Table_ToCustomers" Association="PizzaDatabaseModel.FK_Table_ToCustomers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToLogin" Association="PizzaDatabaseModel.FK_Table_ToLogin">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToOrder" Association="PizzaDatabaseModel.FK_Table_ToOrder">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToPrice" Association="PizzaDatabaseModel.FK_Table_ToPrice">
+            <End Role="Price" EntitySet="Prices" />
+            <End Role="Table" EntitySet="Tables" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="CustomersId" />
@@ -129,7 +151,7 @@
           <Property Name="CustomersId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToCustomers" FromRole="Customers" ToRole="Table" />
+          <NavigationProperty Name="Tables" Relationship="PizzaDatabaseModel.FK_Table_ToCustomers" FromRole="Customer" ToRole="Table" />
         </EntityType>
         <EntityType Name="Login">
           <Key>
@@ -137,7 +159,7 @@
           </Key>
           <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToLogin" FromRole="Login" ToRole="Table" />
+          <NavigationProperty Name="Tables" Relationship="PizzaDatabaseModel.FK_Table_ToLogin" FromRole="Login" ToRole="Table" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -146,15 +168,15 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Pepperoni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Margarita" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToOrder" FromRole="Order" ToRole="Table" />
+          <NavigationProperty Name="Tables" Relationship="PizzaDatabaseModel.FK_Table_ToOrder" FromRole="Order" ToRole="Table" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
             <PropertyRef Name="PriceId" />
           </Key>
           <Property Name="PriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Price1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Tables" Relationship="Self.FK_Table_ToPrice" FromRole="Price" ToRole="Table" />
+          <Property Name="Price1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tables" Relationship="PizzaDatabaseModel.FK_Table_ToPrice" FromRole="Price" ToRole="Table" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -166,16 +188,16 @@
           <Property Name="Order_Id" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Time_Stamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Table_ToCustomers" FromRole="Table" ToRole="Customers" />
-          <NavigationProperty Name="Login" Relationship="Self.FK_Table_ToLogin" FromRole="Table" ToRole="Login" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Table_ToOrder" FromRole="Table" ToRole="Order" />
-          <NavigationProperty Name="Price1" Relationship="Self.FK_Table_ToPrice" FromRole="Table" ToRole="Price" />
+          <NavigationProperty Name="Customer" Relationship="PizzaDatabaseModel.FK_Table_ToCustomers" FromRole="Table" ToRole="Customer" />
+          <NavigationProperty Name="Login" Relationship="PizzaDatabaseModel.FK_Table_ToLogin" FromRole="Table" ToRole="Login" />
+          <NavigationProperty Name="Order" Relationship="PizzaDatabaseModel.FK_Table_ToOrder" FromRole="Table" ToRole="Order" />
+          <NavigationProperty Name="Price1" Relationship="PizzaDatabaseModel.FK_Table_ToPrice" FromRole="Table" ToRole="Price" />
         </EntityType>
         <Association Name="FK_Table_ToCustomers">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Type="PizzaDatabaseModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="PizzaDatabaseModel.Table" Role="Table" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customers">
+            <Principal Role="Customer">
               <PropertyRef Name="CustomersId" />
             </Principal>
             <Dependent Role="Table">
@@ -184,8 +206,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Table_ToLogin">
-          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Type="PizzaDatabaseModel.Login" Role="Login" Multiplicity="0..1" />
+          <End Type="PizzaDatabaseModel.Table" Role="Table" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Login">
               <PropertyRef Name="LoginId" />
@@ -196,8 +218,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Table_ToOrder">
-          <End Role="Order" Type="Self.Order" Multiplicity="1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Type="PizzaDatabaseModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="PizzaDatabaseModel.Table" Role="Table" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="OrderId" />
@@ -208,8 +230,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Table_ToPrice">
-          <End Role="Price" Type="Self.Price" Multiplicity="1" />
-          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <End Type="PizzaDatabaseModel.Price" Role="Price" Multiplicity="1" />
+          <End Type="PizzaDatabaseModel.Table" Role="Table" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Price">
               <PropertyRef Name="PriceId" />
@@ -219,29 +241,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PizzaDatabaseEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Logins" EntityType="Self.Login" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="Prices" EntityType="Self.Price" />
-          <EntitySet Name="Tables" EntityType="Self.Table" />
-          <AssociationSet Name="FK_Table_ToCustomers" Association="Self.FK_Table_ToCustomers">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="Table" EntitySet="Tables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_ToLogin" Association="Self.FK_Table_ToLogin">
-            <End Role="Login" EntitySet="Logins" />
-            <End Role="Table" EntitySet="Tables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_ToOrder" Association="Self.FK_Table_ToOrder">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="Table" EntitySet="Tables" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_ToPrice" Association="Self.FK_Table_ToPrice">
-            <End Role="Price" EntitySet="Prices" />
-            <End Role="Table" EntitySet="Tables" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -251,46 +250,46 @@
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
-                <ScalarProperty Name="CustomersId" ColumnName="CustomersId" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CustomersId" ColumnName="CustomersId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Login">
               <MappingFragment StoreEntitySet="Login">
-                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
                 <ScalarProperty Name="ID_number" ColumnName="ID_number" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-                <ScalarProperty Name="Pepperoni" ColumnName="Pepperoni" />
                 <ScalarProperty Name="Margarita" ColumnName="Margarita" />
+                <ScalarProperty Name="Pepperoni" ColumnName="Pepperoni" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Prices">
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Price">
               <MappingFragment StoreEntitySet="Price">
-                <ScalarProperty Name="PriceId" ColumnName="PriceId" />
                 <ScalarProperty Name="Price1" ColumnName="Price" />
+                <ScalarProperty Name="PriceId" ColumnName="PriceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tables">
             <EntityTypeMapping TypeName="PizzaDatabaseModel.Table">
               <MappingFragment StoreEntitySet="Table">
-                <ScalarProperty Name="Transaction_Id" ColumnName="Transaction_Id" />
-                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
-                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
-                <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Time_Stamp" ColumnName="Time_Stamp" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Transaction_Id" ColumnName="Transaction_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

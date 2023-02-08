@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="373dae757588427190d034cd8991b19d" Name="Diagram1">
-        <EntityTypeShape EntityType="PizzaDatabaseModel.Customer" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaDatabaseModel.Login" Width="1.5" PointX="8" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaDatabaseModel.Order" Width="1.5" PointX="5.625" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaDatabaseModel.Price" Width="1.5" PointX="9.625" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PizzaDatabaseModel.Table" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToCustomers" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToLogin" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToOrder" ManuallyRouted="false" />
-        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToPrice" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PizzaDatabaseModel.Customer" Width="1.5" PointX="9.5" PointY="0.875" />
+        <EntityTypeShape EntityType="PizzaDatabaseModel.Login" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="PizzaDatabaseModel.Order" Width="1.5" PointX="1.125" PointY="0.625" />
+        <EntityTypeShape EntityType="PizzaDatabaseModel.Price" Width="1.5" PointX="6.875" PointY="2.375" />
+        <EntityTypeShape EntityType="PizzaDatabaseModel.Table" Width="1.5" PointX="3.75" PointY="0.625" />
+        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToCustomers" />
+        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToLogin" />
+        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToOrder" />
+        <AssociationConnector Association="PizzaDatabaseModel.FK_Table_ToPrice" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
